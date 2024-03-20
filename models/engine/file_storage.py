@@ -19,7 +19,7 @@ class FileStorage:
         obj_dict = {}
         for key, val in FileStorage.__objects.items():
             obj_dict[key] = val.to_dict()
-
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(obj_dict, f)
 
     def reload(self):
@@ -34,3 +34,14 @@ class FileStorage:
                         FileStorage.__objects[key] = BaseModel(**val)
         else:
             pass
+    def destroy(self, objId):
+        del FileStorage.__objects[objId]
+        self.save()
+
+    @classmethod
+    def get_obj(cls):
+        return cls.__objects
+
+    @classmethod
+    def get_filepath(cls):
+        return cls.__file_path
