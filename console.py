@@ -21,10 +21,11 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         if not line:
             print("** class name missing **")
-        elif line != "BaseModel":
+        elif line not in FileStorage.return_classes().keys():
             print("** class doesn't exist **")
         else:
-            new = BaseModel()
+            line = line.split()[0]
+            new = eval("FileStorage.return_classes()[line]()")
             new.save()
             print(new.id)
 
@@ -99,20 +100,23 @@ class HBNBCommand(cmd.Cmd):
             if len(args) == 1:
                 if args[0] not in [obj.split(".")[0] for obj in FileStorage.get_obj().keys()]:
                     print("** class doesn't exist **")
-                print("** instance id missing **")
+                else:
+                    print("** instance id missing **")
 
             elif len(args) == 2:
                 if args[0] not in [obj.split(".")[0] for obj in FileStorage.get_obj().keys()]:
                     print("** class doesn't exist **")
                 elif args[1] not in [obj.split(".")[1] for obj in FileStorage.get_obj().keys()]:
                     print("** no instance found **")
-                print("** attribute name missing **")
+                else:
+                    print("** attribute name missing **")
             elif len(args) == 3:
                 if args[0] not in [obj.split(".")[0] for obj in FileStorage.get_obj().keys()]:
                     print("** class doesn't exist **")
                 elif args[1] not in [obj.split(".")[1] for obj in FileStorage.get_obj().keys()]:
                     print("** no instance found **")
-                print("** value missing **")
+                else:
+                    print("** value missing **")
             else:
                 if args[0] not in [obj.split(".")[0] for obj in FileStorage.get_obj().keys()]:
                     print("** class doesn't exist **")
