@@ -8,7 +8,7 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
-    
+
     @classmethod
     def return_classes(cls):
         from models.base_model import BaseModel
@@ -19,9 +19,10 @@ class FileStorage:
         from models.amenity import Amenity
         from models.review import Review
 
-        return {"BaseModel": BaseModel, "User": User, "Place": Place, \
-                "State": State, "City": City, "Amenity": Amenity, \
+        return {"BaseModel": BaseModel, "User": User, "Place": Place,
+                "State": State, "City": City, "Amenity": Amenity,
                 "Review": Review}
+
     def all(self):
         return FileStorage.__objects
 
@@ -45,9 +46,12 @@ class FileStorage:
                     my_object = json.load(f)
                     for key, val in my_object.items():
                         class_name = key.split(".")[0]
-                        FileStorage.__objects[key] = eval("FileStorage.return_classes()[class_name](**val)")
+                        FileStorage.__objects[key] = \
+                            eval("FileStorage.return_classes()\
+                            [class_name](**val)")
         else:
             pass
+
     def destroy(self, objId):
         del FileStorage.__objects[objId]
         self.save()
