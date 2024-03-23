@@ -13,7 +13,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = ("(hbnb) ")
 
     def precmd(self, line):
-        """
+        """Precmd method that modifies the input
         """
         reg1 = r"(\w+)\.(\w+)\(\)"
         reg2 = r"(\w+)\.(\w+)\(\"([a-zA-Z0-9-]+)\"\)"
@@ -53,10 +53,12 @@ class HBNBCommand(cmd.Cmd):
             return line
 
     def do_nothing(self, line):
+        """Method called after updating a class
+        """
         return ""
 
     def do_count(self, line):
-        """
+        """Method that counts the instances of a class
         """
         if not line:
             print("** class name missing **")
@@ -82,6 +84,8 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def do_create(self, line):
+        """Method that creates a new instance of a class
+        """
         if not line:
             print("** class name missing **")
         elif line.split()[0] not in FileStorage.return_classes().keys():
@@ -93,6 +97,8 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, line):
+        """Method that displays an instance
+        """
         if not line:
             print("** class name missing **")
 
@@ -117,6 +123,8 @@ class HBNBCommand(cmd.Cmd):
                         print(FileStorage.get_obj()[classId])
 
     def do_destroy(self, line):
+        """Method that deletes an instance
+        """
         if not line:
             print("** class name missing **")
 
@@ -143,6 +151,8 @@ class HBNBCommand(cmd.Cmd):
                         storage.destroy(classId)
 
     def do_all(self, line):
+        """Method that displays all instances of a class
+        """
         objects = FileStorage.get_obj()
         my_list = []
         class_found = False
@@ -167,6 +177,8 @@ class HBNBCommand(cmd.Cmd):
             print(my_list)
 
     def do_update(self, line):
+        """Method that updates an instance
+        """
         if not line:
             print("** class name missing **")
         else:
@@ -224,4 +236,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-        HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
