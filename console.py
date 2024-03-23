@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""The cmd class is defined here"""
 
 import cmd
 import sys
@@ -10,6 +11,8 @@ import re
 
 
 class HBNBCommand(cmd.Cmd):
+    """Definition of the cmd class
+    """
     prompt = ("(hbnb) ")
 
     def precmd(self, line):
