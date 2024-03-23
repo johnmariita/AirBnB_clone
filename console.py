@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             return line
 
-    def do_nothing(self, line):
+    def do_nothing(self):
         """Method called after updating a class
         """
         return ""
@@ -76,12 +76,13 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program
         """
-        exit()
+        return True
 
     def do_EOF(self, line):
         """End of File signal that exits the program
         """
-        exit()
+        print()
+        return True
 
     def do_create(self, line):
         """Method that creates a new instance of a class
