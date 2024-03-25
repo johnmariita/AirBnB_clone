@@ -19,9 +19,9 @@ class HBNBCommand(cmd.Cmd):
         """Precmd method that modifies the input
         """
         reg1 = r"(\w+)\.(\w+)\(\)"
-        reg2 = r"(\w+)\.(\w+)\(\"([a-zA-Z0-9-]+)\"\)"
-        reg3 = r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-]+\"),\s?(\"\w+\"),\s?(\"\w+\")\)"
-        reg4 = r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-]+\"),\s?(\{.+\})"
+        reg2 = r"(\w+)\.(\w+)\(\"([a-zA-Z0-9-\s]+)\"\)"
+        reg3 = r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-\s]+\"),\s?(\"\w+\"),\s?(\"\w+\")\)"
+        reg4 = r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-\s]+\"),\s?(\{.+\})"
         matched1 = re.match(reg1, line)
         matched2 = re.match(reg2, line)
         matched3 = re.match(reg3, line)
