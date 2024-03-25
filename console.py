@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             return line
 
-    def do_nothing(self):
+    def do_nothing(self, line):
         """Method called after updating a class
         """
         return ""
