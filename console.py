@@ -20,7 +20,8 @@ class HBNBCommand(cmd.Cmd):
         """
         reg1 = r"(\w+)\.(\w+)\(\)"
         reg2 = r"(\w+)\.(\w+)\(\"([a-zA-Z0-9-\s]+)\"\)"
-        reg3 = r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-\s]+\"),\s?(\"\w+\"),\s?(\"\w+\")\)"
+        reg3 = \
+            r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-\s]+\"),\s?(\"\w+\"),\s?(\"\w+\")\)"
         reg4 = r"(\w+)\.(\w+)\((\"[a-zA-Z0-9-\s]+\"),\s?(\{.+\})"
         matched1 = re.match(reg1, line)
         matched2 = re.match(reg2, line)
@@ -109,8 +110,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             # Handle class missing
             args = line.split()
-            if args[0] not in [obj.split(".")[0]
-                               for obj in FileStorage.get_obj().keys()]:
+            if args[0] not in [obj
+                               for obj in FileStorage.return_classes().keys()]:
                 print("** class doesn't exist **")
             else:
                 if len(args) < 2:
@@ -135,8 +136,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             # Handle class missing
             args = line.split()
-            if args[0] not in [obj.split(".")[0]
-                               for obj in FileStorage.get_obj().keys()]:
+            if args[0] not in [obj
+                               for obj in FileStorage.return_classes().keys()]:
                 print("** class doesn't exist **")
             else:
                 if len(args) < 2:
