@@ -3,6 +3,7 @@
 }
 .places h1{
     margin-left: 30px;
+    font-size: 30px;
 }
 .places .articles{
     display: flex;
