@@ -1,0 +1,77 @@
+.places{
+    margin-top: 20px;
+}
+.places h1{
+    margin-left: 30px;
+    font-size: 30px;
+}
+.places .articles{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.places .articles article{
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ff5a5f;
+    border-radius: 4px;
+}
+.places .articles article h2{
+    font-size: 30px;
+    text-align: center;
+}
+.places .articles article .price_by_night{
+    color: #ff5a5f;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    border: 4px solid #ff5a5f;
+    min-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    float: right;
+}
+.places .articles article .heading{
+    position: relative;
+}
+.places .articles article .heading .price_by_night{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.places .articles article .information{
+    height: 80px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.places .articles article .information div{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+}
+.places .articles article .information .guests .max_guest{
+    background-image: url("../images/guests.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.places .articles article .information .rooms .number_rooms{
+    background-image: url("../images/bedrooms.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.places .articles article .information .bathrooms .number_bathrooms{
+    background-image: url("../images/bathrooms.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.places .articles article .user{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

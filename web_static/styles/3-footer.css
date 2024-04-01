@@ -1,6 +1,7 @@
 footer{
     margin-top: auto;
     background-color: #ffffff;
+    min-height: 60px;
     height: 60px;
     width: 100%;
     border: 1px solid #cccccc;
